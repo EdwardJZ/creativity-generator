@@ -21,7 +21,7 @@ public class Handler implements RequestHandler<APIGatewayProxyRequestEvent, APIG
 		
 		try {
 			Response response = RequestProcessor.getInstance().process(payload);
-			respEvent = ResponseProcessor.createResponse(HttpStatus.SC_OK, gson.toJson(payload));
+			respEvent = ResponseProcessor.createResponse(HttpStatus.SC_OK, gson.toJson(response));
 		} catch (Exception e) {
 			respEvent = ResponseProcessor.createResponse(HttpStatus.SC_INTERNAL_SERVER_ERROR,
 					gson.toJson(new ErrorMessage(e.getMessage())));
