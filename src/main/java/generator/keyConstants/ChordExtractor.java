@@ -5,18 +5,22 @@ import java.util.Arrays;
 import java.util.List;
 
 import generator.keyConstants.MajorMinorEnum.Type;
+import generator.payload.Payload;
 
 public class ChordExtractor {
 	
-	ChordsInKeyOf chordKey;
-	Type majorMinor;
-	private ChordExtractor(ChordsInKeyOf chordKey, Type majorMinor) {
+	private ChordsInKeyOf chordKey;
+	private Type majorMinor;
+	private Payload parmeters;
+	
+	private ChordExtractor(ChordsInKeyOf chordKey, Type majorMinor, Payload p) {
 		this.chordKey = chordKey;
 		this.majorMinor = majorMinor;
+		this.parmeters = p;
 	}
 	
-	public static ChordExtractor getInstance(ChordsInKeyOf chordKey, Type majorMinor) {
-		return new ChordExtractor(chordKey, majorMinor);
+	public static ChordExtractor getInstance(ChordsInKeyOf chordKey, Type majorMinor, Payload p) {
+		return new ChordExtractor(chordKey, majorMinor, p);
 	}
 
 	public enum ChordsInKeyOf {
